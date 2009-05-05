@@ -47,7 +47,7 @@
 # Example (for Solaris 2.x with SPARCompiler C):
 # CC = cc -c -O -s -Xc -DDONTFREE
 
-CC = cc -c
+CC = cc -std=c99 -c
 
 # Define LINK1 and LINK2 so that the command
 #

@@ -1,9 +1,11 @@
-/*********************/
-/* charset.h         */
-/* for Par 1.52      */
-/* Copyright 2001 by */
-/* Adam M. Costello  */
-/*********************/
+/***********************/
+/* charset.h           */
+/* for Par 1.52-i18n.4 */
+/* Copyright 2001 by   */
+/* Adam M. Costello    */
+/* Modified by         */
+/* Jérôme Pouiller     */
+/***********************/
 
 /* This is ANSI C code (C89). */
 
@@ -11,14 +13,14 @@
 /* Note: Those functions declared here which do not use errmsg    */
 /* always succeed, provided that they are passed valid arguments. */
 
-
+#include <wchar.h>
 #include "errmsg.h"
 
 
 typedef struct charset charset;
 
 
-charset *parsecharset(const char *str, errmsg_t errmsg);
+charset *parsecharset(const wchar_t *str, errmsg_t errmsg);
 
   /* parsecharset(str,errmsg) returns the set of characters defined by */
   /* str using charset syntax (see par.doc).  Returns NULL on failure. */
@@ -30,7 +32,7 @@ void freecharset(charset *cset);
   /* *cset.  cset may not be used after this call.      */
 
 
-int csmember(char c, const charset *cset);
+int csmember(wchar_t c, const charset *cset);
 
   /* csmember(c,cset) returns 1 if c is a member of *cset, 0 otherwise. */
 
